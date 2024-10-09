@@ -1,7 +1,15 @@
 import { Button, Form, Input } from "@arco-design/web-react";
 import "@arco-design/web-react/dist/css/arco.css";
+import { useState } from "react";
 
-function Login(){
+interface LoginProps {
+    setCanLogin : React.Dispatch<React.SetStateAction<boolean>>,
+}
+
+function Login( {setCanLogin} : LoginProps){
+    //USESTATE
+    //const [canLogin, setCanLogin] = useState<boolean>();
+
     return(
         <>
             <div className="flex justify-center items-center h-full">
@@ -15,7 +23,7 @@ function Login(){
                         <Input placeholder='Enter Password' className='w-[100%]' />
                     </Form.Item>
                     <Form.Item>
-                        <Button type='primary'>Login</Button>
+                        <Button type='primary' onClick={()=>{setCanLogin(true)}}>Login</Button>
                     </Form.Item>
                     {/* <p className="pb-6">Haven't have an account yet? <span className="text-[#1a43bf] underline cursor-pointer">Sign Up</span></p> */}
                     </Form>
